@@ -1,3 +1,7 @@
+import 'package:atm/View/clientes.dart';
+import 'package:atm/View/contato.dart';
+import 'package:atm/View/empresa.dart';
+import 'package:atm/View/servico.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +16,22 @@ class atm extends StatefulWidget {
 }
 
 class _atmState extends State<atm> {
+  void direcionarEmpresa(){
+    Navigator.push(context, MaterialPageRoute(builder:(context)=>Empresa())
+    );
+  }
+  void direcionarContato(){
+    Navigator.push(context, MaterialPageRoute(builder:(context)=>contato())
+    );
+  }
+  void direcionarServico(){
+    Navigator.push(context, MaterialPageRoute(builder:(context)=>Servico())
+    );
+  }
+  void direcionarClientes(){
+    Navigator.push(context, MaterialPageRoute(builder:(context)=>clientes())
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,18 +51,30 @@ class _atmState extends State<atm> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset("imagens/menu_empresa.png"),
+                GestureDetector(
+                child: Image.asset("imagens/menu_empresa.png"), 
+                onTap: direcionarEmpresa,
+                ),
                 SizedBox(width: 20),
-                Image.asset("imagens/menu_servico.png"),
+                GestureDetector(
+                child:Image.asset("imagens/menu_servico.png"),
+                onTap: direcionarServico,
+                )
               ],
             ),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset("imagens/menu_contato.png"),
+                GestureDetector(
+                child: Image.asset("imagens/menu_contato.png"),
+                onTap: direcionarContato,
+                ),
                 SizedBox(width: 20),
-                Image.asset("imagens/menu_cliente.png"),
+                GestureDetector(
+                child: Image.asset("imagens/menu_cliente.png"),
+                onTap: direcionarClientes,
+                )
               ],
             ),
           ],
